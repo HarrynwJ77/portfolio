@@ -21,91 +21,64 @@
 <template>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
-<div class="topnav">
-    <div>
-        <h1>Harry Jones</h1>
-        <h3>Portfolio</h3>
-    </div>
+<div class="header-container">
+    <h1 class="header-title">Harry Jones</h1>
+    <h3 class="header-subtitle">Portfolio</h3>
 </div>
+
+<div class="projects-container">
+    <div class="project">CV</div>
+    <div class="project">Software Development Projects</div>
+    <div class="project">Personal Achievements</div>
+</div>
+
+<div class="project-information-container">
+</div>
+
+<div class="footer"></div>
 </template>
 
 <style scoped>
-/* Navbar */
-.topnav {
+/* ----- Header Styles ----- */
+.header {
     user-select: none;
     position: sticky;
     z-index: 999;
     background-color: rgb(214, 214, 214);
     display:flow-root;
     padding: 0px;
+    width:100%;
 }
 
-/* Navbar Buttons Container*/
-.topnav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* Navbar Button Container*/
-.topnav li {
-    display: flex;
-}
-
-/* Navbar Button */
-.topnav li a {
-    display: table;
-    padding: 10px 10px;
-    text-decoration: none;
-    background-color: rgb(214, 214, 214);
-}
-
-.drpBtn {
-    padding: 0px 10px !important;
-    width: 100%;
-}
-
-
-.topnav li a>span {
-    display:table-cell;
-    vertical-align: middle;
-}
-
-.topnav li a p {
-    padding-left: 6px;
-}
-
-.topnav li a:hover {
-    cursor: pointer;
-    background-color: darkgray;
-}
-
-.navbar li:hover ul {
-display: block;
-}
-
-/* Navbar Dropdown buttons container */
-.topnav ul ul {
-    top: 100%;
-    position: absolute;
-}
-
-/* Navbar dropdown button container */
-.topnav ul ul li {
+.header-title {
     display: block;
+    text-align: center;
 }
 
-.topnav li:hover ul {
+.header-subtitle {
     display: block;
+    text-align: center;
 }
 
 
-.menu_left {
-    float: left;
-}
 
-.menu_right {
-    float: right;
-}
+
+
+/* ----- Project Container Styles ------ */
+
+
+
+
+
+
+/* ----- Project Styles ----- */
+
+
+
+
+
+
+/* Footer Styles ----- */
+
 
 </style>
