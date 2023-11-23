@@ -10,6 +10,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
     const show_dropdown = ref(false);
 */
     import { getImageUrl } from "../services/projects";
+    import { newTab } from "../services/common";
     import { ref } from "vue";
 
     const projects = ([{title: "Budget", image: "budget_icon.png", url: ""},
@@ -18,6 +19,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
                     {title: "Test", image: "budget_icon.png", url: ""}
                 ]);
 
+    
     /* const proj_width = ref(Object.keys(projects).length) */
 
 </script>
@@ -27,8 +29,8 @@ import { RENDER_LIST } from '@vue/compiler-core';
 <div class="projects">
     <div class="projects-container">
         <div class="project-container" v-for="project in projects" v-bind:key="project.title">
-            <div class="project">
-                <div class="project-title"><p>{{ project.title }}</p></div>
+            <div class="project-title"><p>{{ project.title }}</p></div>
+            <div class="project" v-on:click="newTab(project.url)">
                 <div class="project-img"><img :src="getImageUrl(project.image)"></div>
             </div>
         </div>
@@ -50,7 +52,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
 .projects-container {
     display:table;
     justify-content: center;
-    max-width: fit-content;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -66,45 +68,49 @@ import { RENDER_LIST } from '@vue/compiler-core';
     min-height: 30%;
 }
 
-.project-container.project {
+.project-container {
     display: table-cell;
-    padding: 5%;
+    padding: 3%;
     justify-content: center;
     align-items: center;
-    transition: padding .3s ease-in-out;
     width: 100%;
+    transition: all .3s ease-in-out;
+}
+
+.project {
+    height: 100%;
+    margin: 0;
+    padding: 3%;
 }
 
 .project:hover {
     cursor: pointer;
-    padding: 1%;
-    transition: padding .3s ease-in-out;
 }
 
 .project-container:hover{
+    padding:1%;
     background-color: lightgray;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     transition: all .3s ease-in-out;
+    justify-content:start;
 }
 
-.project-title {
-    display:flex;
+.project-container>.project-title {
+    vertical-align: top !important;
 }
+
 
 .project-title>p {
     width: 100%;
     text-align: center;
     font-size: x-large;
-}
-
-.project-container.project.project-img {
-    display: flex;
-    justify-content: center;
+    margin: 0px;
 }
 
 .project-img>img {
     max-width: 80%;
+    display:flex;
     margin-left: auto;
     margin-right: auto;
 }
