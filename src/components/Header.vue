@@ -19,23 +19,10 @@
 </script>
 
 <template>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
-<div class="header-container">
+<div class="header">
     <h1 class="header-title">Harry Jones</h1>
-    <h3 class="header-subtitle">Portfolio</h3>
+    <h3 class="header-subtitle">Portfolio to rival the Seb Sone</h3>
 </div>
-
-<div class="projects-container">
-    <div class="project">CV</div>
-    <div class="project">Software Development Projects</div>
-    <div class="project">Personal Achievements</div>
-</div>
-
-<div class="project-information-container">
-</div>
-
-<div class="footer"></div>
 </template>
 
 <style scoped>
@@ -44,7 +31,7 @@
     user-select: none;
     position: sticky;
     z-index: 999;
-    background-color: rgb(214, 214, 214);
+    background-color: lightgray;
     display:flow-root;
     padding: 0px;
     width:100%;
