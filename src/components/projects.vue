@@ -49,7 +49,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
 
 .left-border {
     display:table-cell;
-    width: 20px;
+    width: 5%;
     height:inherit;
     border-width: 5px;
     border-top-right-radius: 15px;
@@ -58,7 +58,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
 
 .right-border {
     display:table-cell;
-    width: 20px;
+    width: 5%;
     height:inherit;
     background-color: white;
     border-top-left-radius: 15px;
@@ -75,6 +75,9 @@ import { RENDER_LIST } from '@vue/compiler-core';
     text-align: center;
     font-size: x-large;
     margin: 0px;
+    padding-bottom: 3%;
+    transition: all .3s ease-in-out;
+
 }
 
 .projects {
@@ -83,6 +86,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
     display:block;
     width:100%;
     justify-content: center;
+    transition: all .3s ease-in-out;
 }
 
 .projects-container {
@@ -91,50 +95,43 @@ import { RENDER_LIST } from '@vue/compiler-core';
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+    transition: all .3s ease-in-out;
 }
 
 .project-container {
-    padding: 2%;
+    padding: 3%;
+    padding-top: 0%;
     display: table-cell;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    transition: all .3s ease-in-out;
-    width: 25% !important;
-    min-width: 30%;
-    min-height: 30%;
-}
-
-.project-container {
-    display: table-cell;
-    padding: 3%;
-    padding-top: 0%;
-    justify-content: center;
-    align-items: center;
+    max-width: 25% !important;
+    min-width: 20%;
+    min-height: 20%;
     width: 100%;
+    cursor: pointer;
     transition: all .3s ease-in-out;
 }
 
-.project-container:hover{
-    padding:1%;
-    padding-top: 0%;
+.project-container:hover .project{
     background-color: lightgray;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     transition: all .3s ease-in-out;
-    justify-content:start;
+}
+
+.project-container:hover .title-text {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    transition: all .3s ease-in-out;
 }
 
 .project {
     margin: 0;
-    padding: 3%;
-}
-
-.project>p {
-    vertical-align: top;
-}
-
-.project:hover {
-    cursor: pointer;
+    padding: 4%;
+    padding-top: 6%;
+    transition: all .3s ease-in-out;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .project-title {
@@ -143,19 +140,13 @@ import { RENDER_LIST } from '@vue/compiler-core';
     background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-bottom: 1%;
 }
-
-.project-title:hover {
-    background-color: lightgray;
-}
-
 
 .project-img>img {
     max-width: 80%;
+    max-height: 80%;
     display:flex;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 
