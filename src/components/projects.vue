@@ -15,7 +15,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
 
     const projects = ([{title: "Budget", image: "budget_icon.png", example: "", src: "", exampleActive: false, srcActive: false},
                     {title: "Team 32 Project", image: "team_32.svg", example: "", src: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project", exampleActive: false, srcActive: true},
-                    {title: "MyDesktop", image: "settings.png", example: "https://gitlab.com/HarrynwJ/my_desktop", src: "", exampleActive: true, srcActive: false},
+                    {title: "MyDesktop", image: "settings.png", example: "", src: "https://gitlab.com/HarrynwJ/my_desktop", exampleActive: false, srcActive: true},
                     {title: "Portfolio", image: "portfolio.png", example: "http://localhost:3000/", src: "https://github.com/HarrynwJ77/portfolio", exampleActive: true, srcActive: true}
                 ]);
 
