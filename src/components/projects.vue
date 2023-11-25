@@ -12,7 +12,9 @@ import { RENDER_LIST } from '@vue/compiler-core';
     import { getImageUrl } from "../services/projects";
     import { newTab } from "../services/common";
     import { ref } from "vue";
-
+    import { all_projects } from "../json/projects.json";
+    import { getProjects } from '../services/projects';
+    /*
     const projects = ([
                     {title: "Budget", image: "budget_icon.png", example: "", src: "", exampleActive: false, srcActive: false},
                     {title: "Team 32 Project", image: "team_32.svg", example: "", src: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project", exampleActive: false, srcActive: true},
@@ -20,8 +22,22 @@ import { RENDER_LIST } from '@vue/compiler-core';
                     {title: "Portfolio", image: "portfolio.png", example: "http://localhost:3000/", src: "https://github.com/HarrynwJ77/portfolio", exampleActive: true, srcActive: true}
                     ]);
 
-    
+    const projects2 = ([{title: "CV", image: "cv.png", example: "", src: "", exampleActive: false, srcActive: false}]); 
+
+    const projects_all = ([]);
+
+    projects_all[0] = projects;
+    projects_all[1] = projects2;
+    */
+
     /* const proj_width = ref(Object.keys(projects).length) */
+
+    /*
+    const projects = getProjects(all_projects);
+    console.log(all_projects);
+    */
+
+    const projects = all_projects;
 
     function isAvailable(element: boolean) {
         if (!element) {
@@ -47,7 +63,6 @@ import { RENDER_LIST } from '@vue/compiler-core';
 
 <div class="projects">
     <div class="projects-container">
-        
         <div class="project-container" v-for="project in projects" v-bind:key="project.title">  
             <div class="project-title">
                 <div class="left-border"></div>
@@ -198,6 +213,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
     padding: 3%;
     padding-top: 0%;
     display: table-cell;
+    table-layout: fixed;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     max-width: 25% !important;
