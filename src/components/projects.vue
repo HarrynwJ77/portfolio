@@ -38,6 +38,14 @@ import { RENDER_LIST } from '@vue/compiler-core';
             <div class="project" v-on:click="newTab(project.url)">
                 <div class="project-img"><img :src="getImageUrl(project.image)"></div>
             </div>
+            <div class="project-info">
+                <div class="project-src">
+                    <a></a>
+                </div>
+                <div class="project-example">
+                    <a></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
