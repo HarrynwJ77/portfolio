@@ -58,11 +58,21 @@ import { RENDER_LIST } from '@vue/compiler-core';
 .project-info-container {
     display: table;
     width: 100%;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+
+.project-container:hover .project-info-container {
+    display: table;
+    opacity: 100%;
+    transition: all .3s ease-in-out;
 }
 
 .project-info {
     display: table-row;
+    transition: all .3s ease-in-out;
 }
+
 
 .project-info>a {
     display: inline-table;
@@ -72,18 +82,32 @@ import { RENDER_LIST } from '@vue/compiler-core';
     padding-top: 4%;
     padding-bottom: 4%;
     border-radius: 15px;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
+    border-width: 2px;
+    border-style: solid;
+    border-color: lightgrey;
     background-color: lightgrey;
     margin-bottom: 4px;
+    transition: all .3s ease-in-out;
+}
+
+.project-info:hover .project-info-example {
+    border-color: #057ef0;
+    transition: all .3s ease-in-out;
+}
+
+.project-info:hover .project-info-src {
+    border-color: orange;
+    transition: all .3s ease-in-out;
 }
 
 .project-info-example {
-    border-bottom-color: lightskyblue;
+    border-bottom-color: #057ef0 !important;
+    transition: all .3s ease-in-out;
 }
 
 .project-info-src {
-    border-bottom-color: orange;
+    border-bottom-color: orange !important;
+    transition: all .3s ease-in-out;
 }
 
 .project-container:hover .project-info {
