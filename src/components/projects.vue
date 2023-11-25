@@ -13,11 +13,12 @@ import { RENDER_LIST } from '@vue/compiler-core';
     import { newTab } from "../services/common";
     import { ref } from "vue";
 
-    const projects = ([{title: "Budget", image: "budget_icon.png", example: "", src: "", exampleActive: false, srcActive: false},
+    const projects = ([
+                    {title: "Budget", image: "budget_icon.png", example: "", src: "", exampleActive: false, srcActive: false},
                     {title: "Team 32 Project", image: "team_32.svg", example: "", src: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project", exampleActive: false, srcActive: true},
                     {title: "MyDesktop", image: "settings.png", example: "", src: "https://gitlab.com/HarrynwJ/my_desktop", exampleActive: false, srcActive: true},
                     {title: "Portfolio", image: "portfolio.png", example: "http://localhost:3000/", src: "https://github.com/HarrynwJ77/portfolio", exampleActive: true, srcActive: true}
-                ]);
+                    ]);
 
     
     /* const proj_width = ref(Object.keys(projects).length) */
@@ -200,7 +201,6 @@ import { RENDER_LIST } from '@vue/compiler-core';
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     max-width: 25% !important;
-    min-width: 20%;
     min-height: 20%;
     width: 100%;
     cursor: pointer;
