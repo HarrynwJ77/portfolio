@@ -13,14 +13,32 @@ import { RENDER_LIST } from '@vue/compiler-core';
     import { newTab } from "../services/common";
     import { ref } from "vue";
 
-    const projects = ([{title: "Budget", image: "budget_icon.png", example: "", src: "", active: false},
-                    {title: "Team 32 Project", image: "team_32.svg", example: "", src: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project", active: false},
-                    {title: "MyDesktop", image: "settings.png", example: "https://gitlab.com/HarrynwJ/my_desktop", src: "", active: false},
-                    {title: "Portfolio", image: "portfolio.png", example: "http://localhost:3000/", src: "https://github.com/HarrynwJ77/portfolio", active: true}
+    const projects = ([{title: "Budget", image: "budget_icon.png", example: "", src: "", exampleActive: false, srcActive: false},
+                    {title: "Team 32 Project", image: "team_32.svg", example: "", src: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project", exampleActive: false, srcActive: true},
+                    {title: "MyDesktop", image: "settings.png", example: "https://gitlab.com/HarrynwJ/my_desktop", src: "", exampleActive: true, srcActive: false},
+                    {title: "Portfolio", image: "portfolio.png", example: "http://localhost:3000/", src: "https://github.com/HarrynwJ77/portfolio", exampleActive: true, srcActive: true}
                 ]);
 
     
     /* const proj_width = ref(Object.keys(projects).length) */
+
+    function isAvailable(element: boolean) {
+        if (!element) {
+            return "inactive";
+        }
+    }
+
+    function getTitleText(available: boolean, info: string) {
+        if (!available) {
+            return "Not currently available";
+        }
+
+        if (info == "example") {
+            return "View published project";
+        }
+
+        return "View project source code";
+    }
 
 </script>
 
@@ -39,10 +57,10 @@ import { RENDER_LIST } from '@vue/compiler-core';
                 <div class="project-img"><img :src="getImageUrl(project.image)"></div>
             </div>
             <div class="project-info-container">
-                <div class="project-info" v-on:click="newTab(project.example)">
+                <div class="project-info" v-bind:class="isAvailable(project.exampleActive)" v-on:click="newTab(project.example, project.exampleActive)" v-bind:title="getTitleText(project.exampleActive, 'example')">
                     <a class="project-info-example">Project Example</a>
                 </div>
-                <div class="project-info" v-on:click="newTab(project.src)">
+                <div class="project-info" v-bind:class="isAvailable(project.srcActive)"  v-on:click="newTab(project.src, project.srcActive)" v-bind:title="getTitleText(project.srcActive, 'src')">
                     <a class="project-info-src">Project Source Code</a>
                 </div>
             </div>
@@ -54,6 +72,14 @@ import { RENDER_LIST } from '@vue/compiler-core';
 
 <style scoped>
 /* ----- Header Styles ----- */
+
+.project-info.inactive>a {
+    border-top-color: darkgrey !important;
+    border-left-color: darkgrey !important;
+    border-right-color: darkgrey !important;
+    cursor:not-allowed;
+    background-color: darkgrey;
+}
 
 .project-info-container {
     display: table;
