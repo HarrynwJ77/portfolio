@@ -13,10 +13,10 @@ import { RENDER_LIST } from '@vue/compiler-core';
     import { newTab } from "../services/common";
     import { ref } from "vue";
 
-    const projects = ([{title: "Budget", image: "budget_icon.png", url: ""},
-                    {title: "Team 32 Project", image: "team_32.svg", url: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project"},
-                    {title: "MyDesktop", image: "settings.png", url: "https://gitlab.com/HarrynwJ/my_desktop"},
-                    {title: "Test", image: "budget_icon.png", url: ""}
+    const projects = ([{title: "Budget", image: "budget_icon.png", example: "", src: "", active: false},
+                    {title: "Team 32 Project", image: "team_32.svg", example: "", src: "https://projects.cs.nott.ac.uk/comp2002/2023-2024/team32_project", active: false},
+                    {title: "MyDesktop", image: "settings.png", example: "https://gitlab.com/HarrynwJ/my_desktop", src: "", active: false},
+                    {title: "Portfolio", image: "portfolio.png", example: "http://localhost:3000/", src: "https://github.com/HarrynwJ77/portfolio", active: true}
                 ]);
 
     
@@ -35,15 +35,15 @@ import { RENDER_LIST } from '@vue/compiler-core';
                 <p class="title-text">{{ project.title }}</p>
                 <div class="right-border"></div>
             </div>
-            <div class="project" v-on:click="newTab(project.url)">
+            <div class="project">
                 <div class="project-img"><img :src="getImageUrl(project.image)"></div>
             </div>
-            <div class="project-info">
-                <div class="project-src">
-                    <a></a>
+            <div class="project-info-container">
+                <div class="project-info" v-on:click="newTab(project.example)">
+                    <a class="project-info-example">Project Example</a>
                 </div>
-                <div class="project-example">
-                    <a></a>
+                <div class="project-info" v-on:click="newTab(project.src)">
+                    <a class="project-info-src">Project Source Code</a>
                 </div>
             </div>
         </div>
@@ -54,6 +54,41 @@ import { RENDER_LIST } from '@vue/compiler-core';
 
 <style scoped>
 /* ----- Header Styles ----- */
+
+.project-info-container {
+    display: table;
+    width: 100%;
+}
+
+.project-info {
+    display: table-row;
+}
+
+.project-info>a {
+    display: inline-table;
+    width: 100%;
+    text-align: center;
+    font-size:large;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border-radius: 15px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    background-color: lightgrey;
+    margin-bottom: 4px;
+}
+
+.project-info-example {
+    border-bottom-color: lightskyblue;
+}
+
+.project-info-src {
+    border-bottom-color: orange;
+}
+
+.project-container:hover .project-info {
+    display: block;
+}
 
 .left-border {
     display:table-cell;
@@ -74,7 +109,6 @@ import { RENDER_LIST } from '@vue/compiler-core';
 }
 
 .title-text {
-    display:table-cell;
     width:100%;
     background-color: lightgrey;
     border-bottom-left-radius: 15px;
@@ -85,6 +119,9 @@ import { RENDER_LIST } from '@vue/compiler-core';
     margin: 0px;
     padding-bottom: 3%;
     transition: all .3s ease-in-out;
+    border-bottom-color: darkgrey;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
 
 }
 
@@ -120,23 +157,9 @@ import { RENDER_LIST } from '@vue/compiler-core';
     transition: all .3s ease-in-out;
 }
 
-.project-container:hover .project{
-    background-color: lightgray;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
-    transition: all .3s ease-in-out;
-}
-
-.project-container:hover .title-text {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    transition: all .3s ease-in-out;
-}
-
 .project {
     margin: 0;
-    padding: 4%;
-    padding-top: 6%;
+    padding: 6%;
     transition: all .3s ease-in-out;
     margin-left: 5%;
     margin-right: 5%;
@@ -151,8 +174,8 @@ import { RENDER_LIST } from '@vue/compiler-core';
 }
 
 .project-img>img {
-    max-width: 80%;
-    max-height: 80%;
+    width: 80%;
+    height: 100%;
     display:flex;
     margin: auto;
 }
