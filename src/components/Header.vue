@@ -30,7 +30,7 @@
 .header {
     user-select: none;
     position: sticky;
-    z-index: 999;
+    z-index: 50;
     background-color: lightgray;
     display:flow-root;
     padding: 0px;
