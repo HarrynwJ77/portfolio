@@ -9,7 +9,7 @@ import { RENDER_LIST } from '@vue/compiler-core';
     
     const show_dropdown = ref(false);
 */
-    import { getImageUrl } from "../services/projects";
+    import { getImageUrl } from "../services/commonGetImageUrl";
     import { newTab } from "../services/common";
     import { ref } from "vue";
     import { all_projects } from "../json/projects.json";

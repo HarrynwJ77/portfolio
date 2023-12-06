@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import { RENDER_LIST } from '@vue/compiler-core';
 import { ref } from 'vue';
+import  hButtonIcon  from "./hButtonIcon.vue";
+import { getImageUrl } from '@/services/commonGetImageUrl';
+import { setVars } from '@/services/setVars';
 
 const show_login = ref(true);
+var iconSrc = ref("hButtonIconDefault.svg");
 
+function setIconSrc(newSrc:string) {
+    newSrc = getImageUrl(newSrc);
+    iconSrc = ref(newSrc);
+}
 
 </script>
 
@@ -15,6 +23,7 @@ const show_login = ref(true);
             <p class="login-title">Login</p>
         </div>
         <div class="login-input-container">
+            <h-button-icon class="icon-button x-large" src="userInputPasswordHide.svg"></h-button-icon>
             <input type="text" placeholder="Email">
             <input type="password" placeholder="Password">
         </div>
@@ -29,18 +38,23 @@ const show_login = ref(true);
 
 <style scoped>
 
+
+
 .login-button {
     position:relative;
     display: inline-block;
-    background-color: darkgrey;
-    border-color: darkgrey;
-    border-radius: 5px;
-    padding: 5px 10px;
-    border-style: outset;
+    background-color: rgb(50, 50, 50, 0);
+    border-color: rgb(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    border-style: solid;
     margin: 0 auto;
+    transition: all .15s ease-in-out; 
 }
 
 .login-button:hover {
+    background-color: rgb(50, 50, 50, 0.15);
+    transition: all .15s ease-in-out; 
     cursor: pointer;
 }
 
@@ -49,9 +63,11 @@ const show_login = ref(true);
     display: block;
     background-color: azure;
     border: 0px;
-    margin: 10px auto;
+    margin: 30px auto;
+    margin-top: 2px;
     width: 200px;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .login-input-container>input:focus-visible {
@@ -97,7 +113,7 @@ const show_login = ref(true);
 .login-input-container {
     display: block;
     background-color: lightgrey;
-    padding: 5px;
+    padding: 30px;
 
 }
 
