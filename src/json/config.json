@@ -1,0 +1,9 @@
+{
+    "image_settings": [
+        { 
+            "defaultImageFormat": "svg",
+            "defaultImageSrc"   : "../assets/images/",
+            "defaultImage300px" :
+        }
+    ]
+}

@@ -4,6 +4,10 @@ import { ref } from 'vue';
 import  hButtonIcon  from "./hButtonIcon.vue";
 import { getImageUrl } from '@/services/commonGetImageUrl';
 import { setVars } from '@/services/setVars';
+import hbutton from "./hButton.vue";
+import img from "./hImage.vue";
+import hInputEmailContainer from './hInputEmailContainer.vue';
+import hInputPasswordContainer from "./hInputPasswordContainer.vue";
 
 const show_login = ref(true);
 var iconSrc = ref("hButtonIconDefault.svg");
@@ -23,9 +27,8 @@ function setIconSrc(newSrc:string) {
             <p class="login-title">Login</p>
         </div>
         <div class="login-input-container">
-            <h-button-icon class="icon-button x-large" src="userInputPasswordHide.svg"></h-button-icon>
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <h-input-email-container></h-input-email-container>
+            <h-input-password-container></h-input-password-container>
         </div>
         <div class="login-button-container">
             <button class="login-button">Cancel</button>
