@@ -18,6 +18,7 @@ const props = ref ({
 .img::after {
     position: relative;
     width: 300px;
+    max-width: 300px;
     height: x(inherit);
     content: src(inherit);
 }

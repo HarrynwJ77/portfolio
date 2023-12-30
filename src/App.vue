@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import  Header  from "./components/Header.vue";
-import Projects from "./components/projects.vue"
-import userLoginMain from "./components/userLoginMain.vue";
+import  hRatioContainer  from "./components/hRatioContainer.vue";
+import test from "./components/test.vue";
 </script>
 
 <template>
-  <Header></Header>
-  <Projects></Projects>
-  <userLoginMain></userLoginMain>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <test></test>
 </template>
 
-<style scoped>
+<style>
+body {
+      font-family: 'Roboto', sans-serif;
+    }
 </style>

@@ -58,3 +58,4 @@ button:active img{
 }
 
 </style>
+@/services/hImageGetUrl
