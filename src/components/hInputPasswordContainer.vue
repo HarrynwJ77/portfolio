@@ -2,8 +2,6 @@
 import hButtonIcon from "./hButtonIcon.vue";
 import { getImageUrl } from "@/services/commonGetImageUrl";
 import { ref } from "vue";
-import hInputPasswordShowHide from "./hInputPasswordShowHide.vue";
-import hInputPasswordInput from "./hInputPasswordInput.vue";
 
 var passwordShow = true;
 var buttonIcon = ref(getImageUrl("userInputPasswordShow.svg"));
@@ -21,7 +19,7 @@ function showHide() {
   } else {
     input?.setAttribute("type", "password")
     image?.setAttribute("src", getImageUrl("userInputPasswordShow.svg"));
-    button?.setAttribute("title", "Hide Password");
+    button?.setAttribute("title", "Show Password");
   }
   passwordShow = ! passwordShow;
 }
@@ -29,7 +27,9 @@ function showHide() {
 </script>
 <template>
     <div class="h-input-password-container">
+      <div class="form-label">
         <label>Password</label>
+      </div>
         <form>
           <input id="h-input-password" type="password" class="h-input-password-input" autocomplete="on"/>
           <button id="h-btn-password-show-hide" type="button" class="h-input-password-show-hide" @click="showHide()" title="Show password">
@@ -40,6 +40,13 @@ function showHide() {
 </template>
 <style scoped>
 
+.h-input-password-container {
+  margin-bottom: 10px;
+}
+
+.form-label {
+  margin-bottom: 4px;
+}
 
 button {
   all: inherit;

@@ -1,31 +1,63 @@
 <script setup lang="ts">
-/*
-    import { ref } from "vue";
-    import { exportProof } from "../services/toolbar";
-    import { importProof } from "../services/toolbar";
-    import { settings } from "../services/toolbar";
-    
-    const show_dropdown = ref(false);
-    const options = ([{option: "Import", icon: "download", func: importProof},
-                    {option: "Export", icon: "publish",  func: exportProof},
-                    {option: "Settings", icon: "settings", func: settings}
-                ]);
-
-    function toggleDropdown() {
-        show_dropdown.value = ! show_dropdown.value;
-    }
-    */
 
 </script>
 
 <template>
 <div class="header">
-    <h1 class="header-title">Harry Jones</h1>
-    <h3 class="header-subtitle">Portfolio to rival the Seb Sone</h3>
+    <div class="header-section left">
+
+    </div>
+    <div class="header-section middle">
+        <h1 class="header-text title">Harry Jones</h1>
+        <h3 class="header-text subtitle">Portfolio to rival the Seb Sone</h3>
+    </div>
+    <div class="header-section right">
+        
+    </div>
+    
+    
+
 </div>
 </template>
 
 <style scoped>
+
+.header-section {
+    display: inline-table;
+}
+
+.left {
+    width: 20%;
+}
+
+.middle {
+    width: 60%;
+}
+
+.right {
+    width: 20%;
+    height: 100%;
+}
+
+.login-button {
+    position:relative;
+    display: inline-block;
+    background-color: rgba(143, 5, 5, 0);
+    border-color: rgb(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    border-style: solid;
+    margin-right: 15px;
+    transition: all .15s ease-in-out;
+    float: right;
+}
+
+.login-button:hover {
+    background-color: rgb(50, 50, 50, 0.15);
+    transition: all .15s ease-in-out; 
+    cursor: pointer;
+}
+
 /* ----- Header Styles ----- */
 .header {
     user-select: none;
@@ -37,15 +69,11 @@
     width:100%;
 }
 
-.header-title {
+.header-text {
     display: block;
     text-align: center;
 }
 
-.header-subtitle {
-    display: block;
-    text-align: center;
-}
 
 
 

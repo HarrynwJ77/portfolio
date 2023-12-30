@@ -14,7 +14,7 @@ function searchEmails() {
 </script>
 
 <template>
-  <button type="button" class="h-button-icon" @click="searchEmails" title="Check if email is in use">
+  <button type="button" class="h-button-icon" @click="searchEmails" title="Check availability">
     <h-icon-search/>
   </button>
 </template>

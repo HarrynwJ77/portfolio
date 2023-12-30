@@ -9,7 +9,9 @@ import img from "./hImage.vue";
 import hInputEmailContainer from './hInputEmailContainer.vue';
 import hInputPasswordContainer from "./hInputPasswordContainer.vue";
 
-const show_login = ref(true);
+var show_login = ref(false);
+var show_signup = ref(false);
+
 var iconSrc = ref("hButtonIconDefault.svg");
 
 function setIconSrc(newSrc:string) {
@@ -17,31 +19,92 @@ function setIconSrc(newSrc:string) {
     iconSrc = ref(newSrc);
 }
 
+function toggleLogin() {
+    show_login.value = !show_login.value;
+}
+
+function toggleSignUp() {
+    show_signup.value = !show_signup.value;
+}
+
 </script>
 
 <template>
 
-<div class="user-login-main" v-if="show_login">
-    <div class="user-login-container">
-        <div class="login-title-container">
-            <p class="login-title">Login</p>
-        </div>
-        <div class="login-input-container">
-            <h-input-email-container></h-input-email-container>
-            <h-input-password-container></h-input-password-container>
-        </div>
-        <div class="login-button-container">
-            <button class="login-button">Cancel</button>
-            <button class="login-button">Confirm</button>
-        </div>
+<div class="user-login-main">
+    <div class="user-login-controller">
+        <button class="account-button login" v-on:click="toggleLogin">Login</button>
+        <button class="account-button sign-up" v-on:click="toggleSignUp">Sign Up</button>
     </div>
+    <Transition name="fade-in">
+        <div class="user-login-modal" v-if="show_login">
+            <div class="user-login-container">
+                <div class="login-title-container">
+                    <p class="login-title">Login</p>
+                </div>
+                <div class="login-input-container">
+                    <h-input-email-container></h-input-email-container>
+                    <h-input-password-container></h-input-password-container>
+                </div>
+                <div class="login-button-container">
+                    <button class="login-button" v-on:click="toggleLogin">Cancel</button>
+                    <button class="login-button">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </Transition>
 </div>
 
 </template>
 
 <style scoped>
 
+.fade-in-enter-active {
+  transition: all 0.3s ease-out;
+}
 
+.fade-in-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-in-enter-from,
+.fade-in-leave-to {
+  opacity: 0;
+}
+
+.user-login-controller {
+    position: fixed;
+    display: block;
+    background-color: darkgrey;
+    border-bottom-left-radius: 10px;
+    top: 0px;
+    right: 0px;
+    z-index: 60;
+}
+
+.account-button {
+    background-color: lightgrey;
+    border: 0px;
+    border-bottom: 2px;
+    border-color: darkgrey;
+    border-style: solid;
+    padding: 10px;
+    width: 80px;
+    transition: all .15s ease-in-out;
+}
+
+.account-button:hover {
+    background-color: azure;
+    cursor: pointer;
+    transition: all .15s ease-in-out; 
+}
+
+.login {
+    margin-right: 2px;
+    border-bottom-left-radius: 10px;
+    border-left: 2px;
+    transition: all .15s ease-in-out; 
+}
 
 .login-button {
     position:relative;
@@ -56,7 +119,7 @@ function setIconSrc(newSrc:string) {
 }
 
 .login-button:hover {
-    background-color: rgb(50, 50, 50, 0.15);
+    background-color: lightgrey;
     transition: all .15s ease-in-out; 
     cursor: pointer;
 }
@@ -77,7 +140,7 @@ function setIconSrc(newSrc:string) {
     outline: none;
 }
 
-.user-login-main {
+.user-login-modal {
     position: fixed;
     display: block;
     top: 0;
@@ -87,7 +150,7 @@ function setIconSrc(newSrc:string) {
     width: 100%;
     height: 100%;
     background-color: rgb(0,0,0,0.3);
-    z-index: 51;
+    z-index: 55;
 }
 .login-title {
     text-align: center;

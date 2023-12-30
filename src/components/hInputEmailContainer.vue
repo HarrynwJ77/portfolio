@@ -10,7 +10,9 @@ import hInputEmailInput from "./hInputEmailInput.vue";
 </script>
 <template>
     <div class="h-input-email-container">
-        <label>Username</label>
+        <div class="form-label">
+          <label>Email</label>
+        </div>
         <form>
             <h-input-email-input/>
             <h-input-email-search/>
@@ -19,7 +21,13 @@ import hInputEmailInput from "./hInputEmailInput.vue";
 </template>
 <style scoped>
 
+.h-input-email-container {
+  margin-bottom: 15px;
+}
 
+.form-label {
+  margin-bottom: 4px;
+}
 
 form {
   /* This bit sets up the horizontal layout */
