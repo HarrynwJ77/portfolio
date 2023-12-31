@@ -66,25 +66,26 @@ function animateLink(text: string) {
 					</div>
 					<div class="top-left-column-bottom">
 						<div class="h-link-container">
+							<p class="link-desc">Contact Information</p>
 							<div class="h-link-icon-container">
 								<img class="h-link-icon" v-for="link in links" v-bind:key="link.title"
 									:src="getImageUrl(link.image)" v-on:mouseover="animateLink(link.title)" v-enter />
 							</div>
 							<!-- TDOD: Animate icon text in some sort of cool way...-->
 							<div class="h-link-title-container">
-								<a class="link-title" v-for="link in links" v-html="link.title"></a>
+								<a class="link-title" v-for="link in links" v-html="link.title" v-if="false"></a>
 							</div>
-
-							<!-- 
-                    <p class="link-desc">Contact Information</p>
-                    <a class="link-title" v-for="link in links" v-bind:key="link.title" :href="link.src" v-if="false">{{ link.title }}</a>
-                   -->
 						</div>
 					</div>
 				</div>
-				<div class="top-right-column"></div>
+				<div class="top-right-column">
+				</div>
 			</div>
-			<div class="bottom-row"></div>
+			<div class="bottom-row">
+				<div class="education-container-main">
+					
+				</div>
+			</div>
 		</div>
 		<div class="right-column"></div>
 	</div>
@@ -99,7 +100,9 @@ function animateLink(text: string) {
 	overflow-x: hidden;
 	margin: auto;
 	box-sizing: border-box;
-	mask-image: cross-fade();
+	padding-top: 5px;
+	padding-bottom: 10px;
+	
 }
 
 .link-title {
@@ -109,7 +112,7 @@ function animateLink(text: string) {
 	text-align: center;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: larger;
+	font-size: medium;
 	padding-top: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -150,6 +153,8 @@ function animateLink(text: string) {
 }
 
 .link-desc {
+	margin-top: 0px;
+	margin-bottom: 8px;
 	text-align: center;
 	font-weight: bold;
 	transition: all 0.3s ease-in-out;
