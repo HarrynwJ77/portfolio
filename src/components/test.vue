@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { getImageUrl } from "@/services/hImageGetUrl";
 import { ref } from "vue";
+import educationModal from "./educationModal.vue";
 
 const links = [
 	{
@@ -55,6 +56,9 @@ function animateLink(text: string) {
 		currentLinkActive.value = !currentLinkActive.value;
 	}
 }
+
+var projectEdu = ref(false);
+
 </script>
 <template>
 	<div class="container">
@@ -71,7 +75,6 @@ function animateLink(text: string) {
 								<img class="h-link-icon" v-for="link in links" v-bind:key="link.title"
 									:src="getImageUrl(link.image)" v-on:mouseover="animateLink(link.title)" v-enter />
 							</div>
-							<!-- TDOD: Animate icon text in some sort of cool way...-->
 							<div class="h-link-title-container">
 								<a class="link-title" v-for="link in links" v-html="link.title" v-if="false"></a>
 							</div>
@@ -82,8 +85,16 @@ function animateLink(text: string) {
 				</div>
 			</div>
 			<div class="bottom-row">
+				<div class="portfolio-title-container">
+					<div class="portfolio-btn-container">
+						<button class="btn-portfolio">Education</button>
+					</div>
+					<div class="portfolio-btn-container">
+						<button class="btn-portfolio">Projects</button>
+					</div>
+				</div>
 				<div class="education-container-main">
-					
+					<education-modal></education-modal>
 				</div>
 			</div>
 		</div>
@@ -92,10 +103,36 @@ function animateLink(text: string) {
 </template>
 
 <style scoped>
-.h-link-title-container {
+.btn-border {
+	border-bottom: 1px;
+	border-color: #86b6f6;
+	border-style: solid;
+}
+
+.portfolio-title-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 10px;
+}
+
+.btn-portfolio:focus {
+	border-bottom: 2px;
+	border-style: solid;
+	border-color:#86b6f6;
+}
+
+.btn-portfolio {
+	display: inline;
+	padding-bottom: 3px;
+	margin: 5px;
+	font-size: 20px;
+	border-width: 0px;
+	background: none;
+	width: 100px;
+}
+
+.h-link-title-container {
 	max-width: 100%;
 	overflow-x: hidden;
 	margin: auto;
@@ -156,7 +193,6 @@ function animateLink(text: string) {
 	margin-top: 0px;
 	margin-bottom: 8px;
 	text-align: center;
-	font-weight: bold;
 	transition: all 0.3s ease-in-out;
 }
 

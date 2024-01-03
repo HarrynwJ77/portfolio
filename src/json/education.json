@@ -1,0 +1,40 @@
+{
+    "education": [
+        {
+            "institution": "Honley High School",
+            "image": "honleyHighSchoolIcon.png",
+            "website": "https://www.honleyhigh.co.uk/",
+            "monthStart": "September",
+            "yearStart": "2011",
+            "monthEnd": "July",
+            "yearEnd": "2016"
+        },
+        {
+            "institution": "Greenhead College",
+            "image": "greenheadCollegeIcon.jpg",
+            "website": "https://www.greenhead.ac.uk/",
+            "monthStart": "September",
+            "yearStart": "2016",
+            "monthEnd": "June",
+            "yearEnd": "2018"
+        },
+        {
+            "institution": "Kirklees College",
+            "image": "kirkleesCollegeIcon.jpg",
+            "website": "https://www.kirkleescollege.ac.uk/",
+            "monthStart": "September",
+            "yearStart": "2021",
+            "monthEnd": "May",
+            "yearEnd": "2022"
+        },
+        {
+            "institution": "University of Nottingham",
+            "image": "uonIcon.png",
+            "website": "https://www.nottingham.ac.uk/",
+            "monthStart": "September",
+            "yearStart": "2022",
+            "monthEnd": "July",
+            "yearEnd": "2024"
+        }
+    ]
+}
