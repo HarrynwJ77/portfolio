@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { getImageUrl } from '@/services/hImageGetUrl';
 import { education } from "../json/education.json";
+import  hIcon  from "./hIcon.vue";
 
 const institutes = education;
 
@@ -15,7 +16,12 @@ const institutes = education;
             </div>
             <div class="education-info-container">
                 <div class="education-institute-info">
-                    <a class="education-title" :href="institutions.website"  target="_blank" rel="noopener noreferrer">{{ institutions.institution }}</a>
+                    <a class="education-title" :href="institutions.website"  target="_blank" rel="noopener noreferrer">
+                        <Transition name="link-hover">
+                            <hIcon style="margin-right: 7px;" :src="getImageUrl('linkIcon.svg')"></hIcon>
+                        </Transition>
+                        {{ institutions.institution }}
+                    </a>
                     <h2 class="education-period">{{ institutions.monthStart }} {{ institutions.yearStart }} - {{ institutions.monthEnd }} {{ institutions.yearEnd }}</h2>
                 </div>
             </div>
@@ -23,6 +29,32 @@ const institutes = education;
     </div>
 </template>
 <style scoped>
+
+.link-hover-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.link-hover-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.link-hover-enter-from,
+.link-hover-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+.h-icon {
+    display: none;
+    translate: x(-20);
+	transition: all 0.3s ease-in-out;
+}
+
+.education-title:hover .h-icon {
+    display:block;
+	transition: all 0.3s ease-in-out;
+}
+
 .education-image {
     max-height: 100px;
     max-width: 100px;
@@ -34,8 +66,16 @@ const institutes = education;
 }
 
 .education-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
     float: left;
+    text-decoration: none;
+    color: black;
 }
+
+
 
 .education-institute-info {
     float: right;

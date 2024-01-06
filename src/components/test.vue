@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getImageUrl } from "@/services/hImageGetUrl";
-import { ref } from "vue";
+import { VueElement, ref } from "vue";
 import educationModal from "./educationModal.vue";
 
 const links = [
@@ -59,6 +59,19 @@ function animateLink(text: string) {
 
 var projectEdu = ref(false);
 
+var modalEducationActive = ref(true);
+var modalProjectsActive = ref(false);
+
+function setActive(event:Event, target:String) {
+	if (target == "education") {
+		modalEducationActive.value = true;
+		modalProjectsActive.value = false;
+	} else {
+		modalEducationActive.value = false;
+		modalProjectsActive.value = true;
+	}
+}
+
 </script>
 <template>
 	<div class="container">
@@ -87,15 +100,21 @@ var projectEdu = ref(false);
 			<div class="bottom-row">
 				<div class="portfolio-title-container">
 					<div class="portfolio-btn-container">
-						<button class="btn-portfolio">Education</button>
+						<button class="btn-portfolio" @click="setActive($event, 'education')">Education</button>
+						<div class="btn-portfolio-border" v-if="modalEducationActive"></div>
 					</div>
 					<div class="portfolio-btn-container">
-						<button class="btn-portfolio">Projects</button>
+						<button class="btn-portfolio" @click="setActive($event, 'projects')">Projects</button>
+						<div class="btn-portfolio-border" v-if="modalProjectsActive"></div>
 					</div>
 				</div>
-				<div class="education-container-main">
+				<div class="education-container-main" v-if="modalEducationActive">
 					<education-modal></education-modal>
 				</div>
+				<div class="project-container-main" v-if="modalProjectActive">
+					<project-modal></project-modal>
+				</div>
+				
 			</div>
 		</div>
 		<div class="right-column"></div>
@@ -103,6 +122,14 @@ var projectEdu = ref(false);
 </template>
 
 <style scoped>
+
+.btn-portfolio-border {
+	width: 100%;
+	border-bottom: 1px;
+	border-style: solid;
+	border-color: #86b6f6;
+}
+
 .btn-border {
 	border-bottom: 1px;
 	border-color: #86b6f6;
@@ -116,7 +143,11 @@ var projectEdu = ref(false);
 	padding: 10px;
 }
 
-.btn-portfolio:focus {
+.btn-portfolio:hover {
+	cursor: pointer;
+}
+
+.btn-portfolio.active {
 	border-bottom: 2px;
 	border-style: solid;
 	border-color:#86b6f6;
