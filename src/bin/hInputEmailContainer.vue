@@ -57,4 +57,4 @@ form:focus-within {
   color:white;
 }
 
-</style>
+</style>@/services/hImageGetUrl

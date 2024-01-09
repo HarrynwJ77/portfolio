@@ -190,4 +190,4 @@ function toggleSignUp() {
     margin: 0 auto;
 }
 
-</style>
+</style>@/services/hImageGetUrl

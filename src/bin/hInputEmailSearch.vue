@@ -4,15 +4,19 @@ import type { ForOfStatement } from 'typescript';
 import { ref } from 'vue';
 import hImage from './hImage.vue';
 import hIcon from './hIcon.vue';
+import hIconSearch from './hIconSearch.vue';
 
-const props = defineProps({
-  src: {type: URL},
-})
+function searchEmails() {
+  console.log("Searching emails: ")
+  /* TODO: On click, button should console log contents of input field */
+}
 
 </script>
 
 <template>
-  <button class="h-button-icon" id="hButtonIcon"></button>
+  <button type="button" class="h-button-icon" @click="searchEmails" title="Check availability">
+    <h-icon-search/>
+  </button>
 </template>
 
 
@@ -58,3 +62,4 @@ button:hover {
 }
 
 </style>
+@/services/hImageGetUrl

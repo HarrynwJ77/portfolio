@@ -247,4 +247,4 @@ import { RENDER_LIST } from '@vue/compiler-core';
 }
 
 
-</style>
+</style>../services/hImageGetUrl

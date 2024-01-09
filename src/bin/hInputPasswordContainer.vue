@@ -100,4 +100,4 @@ form:focus-within {
 }
 
 
-</style>
+</style>@/services/hImageGetUrl

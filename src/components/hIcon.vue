@@ -1,19 +1,19 @@
 <script setup lang="ts">
+import { getImageUrl } from '@/services/hImageGetUrl';
 const props = defineProps({
     src: {type: String}
 })
 
-props.src;
-
-console.log(props.src);
 </script>
 <template>
-    <img class="h-icon" src="{{ props.src }}">
+    <img class="h-icon" :src="props.src">
 </template>
 <style scoped>
-.img {
+img {
     position: relative;
-    width: 20px;
-    height: 20px;
+    max-width: 25px;
+    max-height: 25px;
+    height: inherit;
+    width: inherit;
 }
 </style>

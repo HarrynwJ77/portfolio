@@ -2,7 +2,7 @@
 import { getImageUrl } from '@/services/commonGetImageUrl';
 </script>
 <template>
-    <img class="h-icon-show" v-bind:src="getImageUrl('userInputPasswordShow.svg')">
+    <img class="h-icon-hide" v-bind:src="getImageUrl('userInputPasswordHide.svg')">
 </template>
 <style scoped>
 img {
@@ -10,4 +10,4 @@ img {
     width: 20px;
     height: 20px;
 }
-</style>
+</style>@/services/hImageGetUrl
