@@ -74,7 +74,7 @@ function setActive(event:Event, target:String) {
 
 </script>
 <template>
-	<div class="container">
+	<div class="global-portfolio">
 		<div class="left-column">
 			<div class="top-row">
 				<div class="top-left-column">
@@ -111,7 +111,7 @@ function setActive(event:Event, target:String) {
 				<div class="education-container-main" v-if="modalEducationActive">
 					<education-modal></education-modal>
 				</div>
-				<div class="project-container-main" v-if="modalProjectActive">
+				<div class="project-container-main" v-if="modalProjectsActive">
 					<project-modal></project-modal>
 				</div>
 				
@@ -238,7 +238,7 @@ function setActive(event:Event, target:String) {
 	margin: auto;
 }
 
-.container {
+.global-portfolio {
 	display: flex;
 	height: 100vh;
 }

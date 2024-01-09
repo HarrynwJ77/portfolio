@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import test from "./components/test.vue";
+import globalMain from "./components/globalMain.vue";
 </script>
 
 <template>
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <test></test>
+  <global-main></global-main>
 </template>
 
 <style>
