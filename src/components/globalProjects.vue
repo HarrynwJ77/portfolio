@@ -1,6 +1,27 @@
 <script setup lang="ts">
 import projectsAddProject from './projectsAddProject.vue';
 
+
+function change(text: string) {
+	if (currentLinkActive.value) {
+		if (currentLinkText.value == text) {
+			/* If user hovers over the same icon, do nothing */
+			return;
+		}
+		/* Set up new link then deactivate old link */
+		nextLinkText.value = text;
+		currentLinkActive.value = !currentLinkActive.value;
+		nextLinkActive.value = !nextLinkActive.value;
+	} else {
+		if (nextLinkText.value == text) {
+			return;
+		}
+		/* Set up old link then deactivate new link */
+		currentLinkText.value = text;
+		nextLinkActive.value = !nextLinkActive.value;
+		currentLinkActive.value = !currentLinkActive.value;
+	}
+}
 </script>
 <template>
     <div class="global-projects">
